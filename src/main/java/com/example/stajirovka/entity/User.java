@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -35,13 +36,22 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
+    private String phoneNumber;
+
     @Column(name = "middle_name")
     private String middleName;
 
     @Column(name = "chat_id")
     private Long chatId;
 
+    @Column(name = "issue_date")
+    private LocalDateTime issueDate;
+
+    @Column(name = "step")
     private String step;
+
+    @Column(name = "verification_code")
+    private String verificationCode;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "users_roles",
