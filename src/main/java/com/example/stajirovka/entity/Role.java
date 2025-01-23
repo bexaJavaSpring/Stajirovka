@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import org.springframework.security.core.GrantedAuthority;
 
 import java.util.UUID;
 
@@ -16,7 +17,7 @@ import java.util.UUID;
 @SuperBuilder
 @Entity
 @Table(name = "roles")
-public class Role {
+public class Role implements GrantedAuthority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -26,4 +27,7 @@ public class Role {
 
     private String code;
 
+    public String getAuthority() {
+        return "ROLE_" + this.code;
+    }
 }

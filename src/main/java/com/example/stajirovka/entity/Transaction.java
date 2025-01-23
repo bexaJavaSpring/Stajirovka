@@ -1,6 +1,8 @@
 package com.example.stajirovka.entity;
 
 import com.example.stajirovka.entity.enums.MoneyType;
+import com.example.stajirovka.entity.enums.ServiceType;
+import com.example.stajirovka.entity.enums.TransactionStatus;
 import com.example.stajirovka.entity.enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -38,9 +40,13 @@ public class Transaction {
 
     private String expenseCategory;
 
+    @Enumerated(EnumType.STRING)
     private ServiceType serviceType;
 
+    @Enumerated(EnumType.STRING)
     private TransactionStatus status;
 
     private String comment;
+
+    private String viewUrl;
 }
