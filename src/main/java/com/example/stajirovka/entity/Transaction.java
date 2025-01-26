@@ -12,7 +12,6 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -34,10 +33,13 @@ public class Transaction {
     @Enumerated(value = EnumType.STRING)
     private MoneyType moneyType;
 
+    @Column(name = "transaction_fee")
     private Double transactionFee;
 
+    @Column(name = "transaction_date")
     private LocalDate transactionDate;
 
+    @Column(name = "expense_category")
     private String expenseCategory;
 
     @Enumerated(EnumType.STRING)
@@ -46,7 +48,9 @@ public class Transaction {
     @Enumerated(EnumType.STRING)
     private TransactionStatus status;
 
+    @Column(name = "comment")
     private String comment;
 
+    @Column(name = "view_url")
     private String viewUrl;
 }
